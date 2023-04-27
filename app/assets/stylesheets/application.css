@@ -1,0 +1,69 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ /* Estilo da navbar */
+.navbar {
+  height: 80px;
+  background-color: #333;
+  color: #fff;
+  /* Outros estilos da navbar aqui */
+}
+
+/* Estilo do fundo com a imagem */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://gooxxy.com/wp-content/uploads/2021/12/img_gooxxy.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+/* Estilo do glass panel */
+.fundo-login{
+  background-color: grey;
+}
+.content {
+  position: relative;
+  height: 300px;
+  top: 30%;
+}
+.glass-panel {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8); /* Adiciona transparência para criar o efeito de vidro */
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Estilo do botão de catálogo */
+.btn-catalog {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #29bb89;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 20px;
+}

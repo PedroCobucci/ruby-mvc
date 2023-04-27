@@ -1,0 +1,20 @@
+<div class="container-fluid fundo-login">
+    <div class="row justify-content-center align-items-center" style="height:100vh;">
+        <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="card-body">
+            <h5 class="card-title text-center text-dark mb-3">Faça login</h5>
+            <form>
+                <%= form_with url:sign_in_path, method: :post do |form|  %>
+                    <%= form.text_field :email, class: "form-control form-control-lg mb-5", placeholder: "E-mail" %>
+                    <%= form.text_field :password, class: "form-control form-control-lg mb-5", type: "password" ,placeholder: "Senha" %>
+                    <%= form.submit "Entrar", class: "btn btn-lg btn-success btn-block w-100" %>
+
+                <% end %>
+                
+            </form>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div id="<%= dom_id produto %>">
+
+<div class="container">
+  <div class="row mb-5">
+    <div class="col-md-6 text-left pt-3">
+      <%= link_to "Voltar", produtos_path, class: "btn btn-secondary" %>
+    </div>
+    <div class="col-md-6 text-end pt-3">
+      <%= link_to "Editar", edit_produto_path(@produto), class: "btn btn-success" %>
+    </div>
+  </div>
+
+  <hr class="my-4 border-top border-secondary">
+
+</div>
+<div class="pt-5">
+  <div class="container border border-secondary">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <img src="https://images.tcdn.com.br/img/img_prod/808609/biscoito_passatempo_recheado_sabor_chocolate_nestle_130g_28932902_1_20200703134617.jpg" class="img-fluid">
+      </div>
+      <div class="col-md-3 my-auto">
+        <h2 class="fs-1"><%= produto.descricao %></h2>
+        <h3 class="mx-3">Detalhes do Produto</h3>
+        <ul class="mx-2">
+          <li class="fs-5">EAN: <%= produto.ean %></li>
+          <li class="fs-5">SKU: <%= produto.sku %></li>
+          <li class="fs-5">Fabricante: <%= produto.fabricante %></li>
+          <li class="fs-5">Preço: R$ 49,90</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
