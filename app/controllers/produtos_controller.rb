@@ -83,11 +83,11 @@ class ProdutosController < ApplicationController
     def make_get_request
 
       begin
-        conn = Faraday.new(url: 'http://localhost:3000')
+        conn = Faraday.new(url: 'http://54.207.200.11:3000')
       
         response = conn.get do |req|
           req.headers['Authorization'] = Rails.application.credentials.token
-          req.url 'http://localhost:3000/api/auth/validate_token'
+          req.url 'http://54.207.200.11:3000/api/auth/validate_token'
           req.params['uid'] = $uid
           req.params['client'] = $client
           req.params['access-token'] = $access_token

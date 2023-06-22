@@ -3,10 +3,10 @@ class AuthController < ApplicationController
 
     begin
 
-      conn = Faraday.new(url: 'http://localhost:3000')
+      conn = Faraday.new(url: 'http://54.207.200.11:3000')
 
       response = conn.post do |req|
-        req.url 'http://localhost:3000/api/auth/sign_in'
+        req.url 'http://54.207.200.11:3000/api/auth/sign_in'
         req.headers['Authorization'] = Rails.application.credentials.token
         req.body =
         {
@@ -44,11 +44,11 @@ class AuthController < ApplicationController
 
     begin
 
-      conn = Faraday.new(url: 'http://localhost:3000')
+      conn = Faraday.new(url: 'http://54.207.200.11:3000')
       
       response = conn.delete do |req|
         req.headers['Authorization'] = Rails.application.credentials.token
-        req.url 'http://localhost:3000/api/auth/sign_out'
+        req.url 'http://54.207.200.11:3000/api/auth/sign_out'
         req.params['uid'] = $uid
         req.params['client'] = $client
         req.params['access-token'] = $access_token
