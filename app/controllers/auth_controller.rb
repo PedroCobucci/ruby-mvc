@@ -18,8 +18,6 @@ class AuthController < ApplicationController
       
       json_body = JSON.parse(response.body)
 
-      print(response)
-
       loged = json_body.key?("data")
 
       if loged
@@ -27,6 +25,10 @@ class AuthController < ApplicationController
         $uid = response.headers['uid']
         $client = response.headers['client']
         $access_token = response.headers['access-token']
+        json_body = JSON.parse(response.body)
+
+        $admin = json_body['data'] && json_body['data']['admin'] ? json_body['data']['admin'] : false
+        $nickname = json_body['data'] && json_body['data']['nickname'] ? json_body['data']['nickname'] : ''
 
         redirect_to produtos_path
 

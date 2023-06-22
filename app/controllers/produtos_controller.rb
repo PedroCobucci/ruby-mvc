@@ -6,12 +6,16 @@ class ProdutosController < ApplicationController
   
 
   before_action :set_produto, only: %i[ show edit update destroy ]
-  before_action :make_get_request, only: %i[ index edit update destroy show ]
+  before_action :make_get_request
+
 
   # GET /produtos or /produtos.json
   def index
-    print($teste)
-    @produtos = Produto.all
+    if $admin == true
+      @produtos = Produto.all
+    else
+      @produtos = ProdutosProxy.new($nickname).getProdutos
+    end
   end
 
   # GET /produtos/1 or /produtos/1.json
@@ -20,7 +24,6 @@ class ProdutosController < ApplicationController
 
   # GET /produtos/new
   def new
-    print($teste)
     @produto = Produto.new
   end
 
@@ -78,6 +81,7 @@ class ProdutosController < ApplicationController
     end
 
     def make_get_request
+
       begin
         conn = Faraday.new(url: 'http://localhost:3000')
       
@@ -88,12 +92,14 @@ class ProdutosController < ApplicationController
           req.params['client'] = $client
           req.params['access-token'] = $access_token
 
+          
+
         end
       
         json_body = JSON.parse(response.body)
         success = json_body['success']
-
-        print("\n" , "success: " , success , "\n")
+        $admin = json_body['data'] && json_body['data']['admin'] ? json_body['data']['admin'] : false
+        $nickname = json_body['data'] && json_body['data']['nickname'] ? json_body['data']['nickname'] : ''
 
         unless success == true
           redirect_to auth_sign_in_path
